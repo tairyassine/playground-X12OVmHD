@@ -1,7 +1,6 @@
 package net.atos.interview;
 
 import org.junit.Test;
-import org.junit.runner.JUnitCore;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -23,7 +22,7 @@ public class FizzBuzzerTest {
     }
 
     @Test
-    public void should_only_integers_fizzes_and_buzzes_if_no_multiple_of_3_and_5() throws Exception {
+    public void should_only_integers_fizzes_and_buzzes_if_multiple_of_3_and_5() throws Exception {
         // GIVEN
         int to = 6;
         String[] expected = {"1", "2", "fizz", "4", "buzz", "fizz"};
@@ -48,12 +47,10 @@ public class FizzBuzzerTest {
         assertThat(actual, is(expected));
     }
 
-    public static void test() throws Exception {
-        JUnitCore.main(FizzBuzzerTest.class.getCanonicalName());
+    @Test
+    public void should_work_for_all_cases() throws Exception {
+        should_only_return_integers_if_no_multiple_of_3_nor_5();
+        should_only_integers_fizzes_and_buzzes_if_multiple_of_3_and_5();
+        should_return_fizz_buzzes_if_some_multiple_of_3_and_5();
     }
-
-    public static void main(String[] args) throws Exception {
-        test();
-    }
-
 }
